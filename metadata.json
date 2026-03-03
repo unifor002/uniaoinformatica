@@ -1,0 +1,8 @@
+{
+  "name": "União Infor SITE PFICIAL",
+  "description": "Um site institucional moderno e profissional para a União Infor, inspirado no design RepairPlus, focado em serviços de TI e assistência técnica.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
