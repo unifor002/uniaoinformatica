@@ -83,6 +83,26 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
     setSaveStatus('idle');
   };
 
+  const handleAddService = () => {
+    const newService = {
+      id: Date.now().toString(),
+      title: 'Novo Serviço',
+      description: 'Descrição do serviço...',
+      icon: 'fa-tools',
+      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=40'
+    };
+    updateConfig({ servicesList: [...config.servicesList, newService] });
+    setSaveStatus('idle');
+  };
+
+  const handleRemoveService = (index: number) => {
+    if (confirm("Deseja remover este serviço?")) {
+      const newList = config.servicesList.filter((_, i) => i !== index);
+      updateConfig({ servicesList: newList });
+      setSaveStatus('idle');
+    }
+  };
+
   const handleSave = () => {
     setSaveStatus('saving');
     const success = saveConfig();
@@ -425,15 +445,11 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
                 <div className="bg-white p-8 rounded-[32px] border border-slate-100 space-y-6">
-                  <h4 className="text-primary font-black uppercase text-[10px] tracking-widest border-b pb-4">Localização & Pagamentos</h4>
+                  <h4 className="text-primary font-black uppercase text-[10px] tracking-widest border-b pb-4">Localização & Redes</h4>
                   <div className="space-y-4">
                     <div className="space-y-1.5">
                       <label className="text-[9px] font-black uppercase text-slate-400">Endereço Completo</label>
                       <input type="text" value={config.address} onChange={(e) => updateConfig({ address: e.target.value })} className="w-full bg-slate-50 border-none rounded-xl p-4 text-xs font-bold" />
-                    </div>
-                    <div className="space-y-1.5">
-                      <label className="text-[9px] font-black uppercase text-slate-400">Chave PIX (Para exibição no rodapé)</label>
-                      <input type="text" value={config.pixKey} onChange={(e) => updateConfig({ pixKey: e.target.value })} className="w-full bg-slate-50 border-none rounded-xl p-4 text-xs font-bold" />
                     </div>
                     <div className="pt-4 border-t border-slate-50 space-y-4">
                       <h5 className="text-[9px] font-black uppercase text-primary tracking-widest">Redes Sociais</h5>
@@ -552,6 +568,27 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
                      </div>
                    )}
 
+                   <div className="mt-6 pt-6 border-t border-slate-100 w-full">
+                      <h4 className="font-bold oswald uppercase text-primary mb-4 text-xs tracking-widest">Exibição de Seções</h4>
+                      <div className="flex items-center justify-between bg-slate-50 p-4 rounded-2xl">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-xs shadow-sm">
+                            <i className="fas fa-map-marker-alt"></i>
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-black text-primary uppercase tracking-tight">Atendimento Regional</p>
+                            <p className="text-[8px] text-slate-400 uppercase font-bold">Mostrar lista de bairros no rodapé</p>
+                          </div>
+                        </div>
+                        <button 
+                          onClick={() => updateConfig({ showRegionalAreas: !config.showRegionalAreas })}
+                          className={`w-12 h-6 rounded-full transition-all relative ${config.showRegionalAreas ? 'bg-secondary' : 'bg-slate-300'}`}
+                        >
+                          <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${config.showRegionalAreas ? 'right-1' : 'left-1'}`}></div>
+                        </button>
+                      </div>
+                    </div>
+
                    <div className="mt-10 pt-10 border-t border-slate-100 w-full">
                      <h4 className="font-bold oswald uppercase text-primary mb-6 text-xs tracking-widest">Favicon do Site (Ícone da Aba)</h4>
                      <div className="mb-4 p-4 bg-amber-50 rounded-xl border border-amber-100">
@@ -630,10 +667,29 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
             )}
 
             {activeTab === 'servicos' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in fade-in slide-in-from-right-4 duration-500">
-                {config.servicesList.map((s, idx) => (
-                  <div key={idx} className="bg-white p-8 rounded-[32px] shadow-sm border border-slate-100 space-y-4">
-                    <span className="text-[8px] font-black text-secondary uppercase tracking-widest">Cartão de Serviço #{idx+1}</span>
+              <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className="flex justify-between items-center">
+                  <h4 className="text-primary font-black uppercase text-xs tracking-widest">Gerenciar Serviços</h4>
+                  <button 
+                    onClick={handleAddService}
+                    className="bg-secondary text-white px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest shadow-lg hover:scale-105 transition-all"
+                  >
+                    <i className="fas fa-plus mr-2"></i> Adicionar Serviço
+                  </button>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {config.servicesList.map((s, idx) => (
+                    <div key={idx} className="bg-white p-8 rounded-[32px] shadow-sm border border-slate-100 space-y-4 relative group">
+                      <button 
+                        onClick={() => handleRemoveService(idx)}
+                        className="absolute top-6 right-6 w-8 h-8 bg-red-50 text-red-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-red-500 hover:text-white transition-all z-10"
+                        title="Remover Serviço"
+                      >
+                        <i className="fas fa-trash-alt text-xs"></i>
+                      </button>
+
+                      <span className="text-[8px] font-black text-secondary uppercase tracking-widest">Cartão de Serviço #{idx+1}</span>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1">
                         <label className="text-[9px] font-black uppercase text-slate-400">Título</label>
@@ -676,7 +732,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
                        />
                     </div>
                   </div>
-                ))}
+                  ))}
+                </div>
               </div>
             )}
 

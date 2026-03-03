@@ -69,9 +69,6 @@ const Footer: React.FC<FooterProps> = ({ onOpenLogin }) => {
             <a href={`https://wa.me/${cleanWhatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-block bg-green-600 text-white px-6 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-green-700 transition-colors shadow-lg">
               <i className="fab fa-whatsapp mr-2"></i> WhatsApp
             </a>
-            {config.pixKey && (
-              <p className="text-[8px] text-gray-500 mt-2 uppercase font-bold tracking-tighter">PIX: {config.pixKey}</p>
-            )}
           </div>
         </div>
 

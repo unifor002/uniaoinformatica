@@ -38,7 +38,7 @@ interface SiteConfig {
   aboutExpYears: string;
   aboutExpLabel: string;
   servicesList: ServiceItem[];
-  phone: string; whatsapp: string; email: string; address: string; pixKey: string;
+  phone: string; whatsapp: string; email: string; address: string;
   facebookLink: string;
   instagramLink: string;
   linkedinLink: string;
@@ -49,6 +49,7 @@ interface SiteConfig {
   logoType: 'image' | 'text';
   favicon: string;
   googleMapsUrl: string;
+  showRegionalAreas: boolean;
   googleReviews: {
     name: string;
     date: string;
@@ -109,7 +110,6 @@ const defaultConfig: SiteConfig = {
   whatsapp: '5562982229820',
   email: 'contato@uniaoinfor.com.br',
   address: 'R. 68, 522 - St. Central, Goiânia - GO, 74055-100',
-  pixKey: 'financeiro@uniaoinfor.com.br',
   facebookLink: '#',
   instagramLink: '#',
   linkedinLink: '#',
@@ -121,6 +121,7 @@ const defaultConfig: SiteConfig = {
   logoType: 'text',
   favicon: '',
   googleMapsUrl: 'https://www.google.com/maps/place/Uni%C3%A3o+Informatica/@-16.674968,-49.256331,17z',
+  showRegionalAreas: true,
   googleReviews: [
     {
       name: "Ricardo Mendes",

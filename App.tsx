@@ -128,18 +128,20 @@ function AppContent() {
         <Services />
         <GoogleReviews />
         <ContactSection />
-        <section className="py-10 bg-gray-50 border-t border-gray-100">
-          <div className="container mx-auto px-4 text-center">
-             <span className="text-[10px] font-black text-gray-300 uppercase tracking-[0.5em] mb-4 block">Atendimento Regional</span>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] text-gray-400 uppercase font-bold tracking-widest">
-              <span className="hover:text-secondary cursor-default transition-colors">Setor Bueno</span>
-              <span className="hover:text-secondary cursor-default transition-colors">Setor Oeste</span>
-              <span className="hover:text-secondary cursor-default transition-colors">Setor Marista</span>
-              <span className="hover:text-secondary cursor-default transition-colors">Jardim América</span>
-              <span className="hover:text-secondary cursor-default transition-colors">Setor Campinas</span>
+        {config.showRegionalAreas && (
+          <section className="py-10 bg-gray-50 border-t border-gray-100">
+            <div className="container mx-auto px-4 text-center">
+               <span className="text-[10px] font-black text-gray-300 uppercase tracking-[0.5em] mb-4 block">Atendimento Regional</span>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] text-gray-400 uppercase font-bold tracking-widest">
+                <span className="hover:text-secondary cursor-default transition-colors">Setor Bueno</span>
+                <span className="hover:text-secondary cursor-default transition-colors">Setor Oeste</span>
+                <span className="hover:text-secondary cursor-default transition-colors">Setor Marista</span>
+                <span className="hover:text-secondary cursor-default transition-colors">Jardim América</span>
+                <span className="hover:text-secondary cursor-default transition-colors">Setor Campinas</span>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
       
       <WhatsAppButton />
