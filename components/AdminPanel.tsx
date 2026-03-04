@@ -624,6 +624,20 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
 
             {activeTab === 'banners' && (
               <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className="bg-white p-8 rounded-[32px] border border-slate-100 space-y-6">
+                  <h4 className="font-bold oswald uppercase text-primary mb-4 text-xs tracking-widest border-b pb-4">Dimensões dos Banners</h4>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[9px] font-black uppercase text-slate-400 tracking-widest">Largura Máxima (px)</label>
+                      <input type="text" value={config.heroWidth} onChange={(e) => updateConfig({ heroWidth: e.target.value })} className="w-full bg-slate-50 p-4 rounded-xl border-none font-bold text-xs" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[9px] font-black uppercase text-slate-400 tracking-widest">Altura (px)</label>
+                      <input type="text" value={config.heroHeight} onChange={(e) => updateConfig({ heroHeight: e.target.value })} className="w-full bg-slate-50 p-4 rounded-xl border-none font-bold text-xs" />
+                    </div>
+                  </div>
+                </div>
+
                 {[1, 2, 3, 4].map(num => (
                   <div key={num} className="bg-white p-8 rounded-[32px] border border-slate-100 space-y-6 hover:shadow-lg transition-all">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

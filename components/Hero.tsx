@@ -79,8 +79,8 @@ const Hero: React.FC = () => {
       id="home" 
       className="relative w-full mx-auto overflow-hidden bg-primary md:rounded-[32px] md:mt-6 shadow-2xl transition-all duration-500 group/hero"
       style={{ 
-        maxWidth: `${config.heroWidth}px`, 
-        height: window.innerWidth < 768 ? '480px' : `${parseInt(config.heroHeight)}px`
+        maxWidth: '1920px', 
+        height: window.innerWidth < 768 ? '480px' : '640px'
       }}
     >
       {/* Constant Top Gradient for Logo Visibility */}

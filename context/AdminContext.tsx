@@ -69,8 +69,8 @@ const defaultConfig: SiteConfig = {
   colorFooter: '#1a1a1a',
   colorHeroText: '#ffffff',
   logoImage: '', 
-  heroWidth: '1140',
-  heroHeight: '580',
+  heroWidth: '1920',
+  heroHeight: '640',
   heroTitleFontSize: '52',
   heroDescFontSize: '16',
   heroTitle1: 'Suporte <span class="text-secondary">Empresarial</span> Rápido',
@@ -124,32 +124,46 @@ const defaultConfig: SiteConfig = {
   showRegionalAreas: true,
   googleReviews: [
     {
-      name: "Ricardo Mendes",
-      date: "Há 2 meses",
-      text: "Atendimento excepcional! Levei meu notebook que não ligava e resolveram em tempo recorde. Preço justo e equipe muito técnica. Recomendo a todos em Goiânia!",
-      stars: 5,
-      avatar: "https://i.pravatar.cc/150?u=ricardo"
-    },
-    {
-      name: "Ana Beatriz",
+      name: "Divino Rodrigues",
       date: "Há 1 mês",
-      text: "Melhor assistência técnica de Goiânia. Foram super transparentes no orçamento e o serviço ficou impecável. Meu computador agora está voando!",
+      text: "Excelente atendimento, profissionais qualificados e honestos. Recomendo a todos que buscam um serviço de confiança em Goiânia.",
       stars: 5,
-      avatar: "https://i.pravatar.cc/150?u=ana"
+      avatar: "https://i.pravatar.cc/150?u=divino"
     },
     {
-      name: "Marcos Paulo",
-      date: "Há 3 semanas",
-      text: "Equipe sênior de verdade. Resolveram um problema de rede na minha empresa que outros não conseguiram. Estão de parabéns pelo profissionalismo e agilidade.",
+      name: "Lázaro Oliveira",
+      date: "Há 2 meses",
+      text: "Melhor assistência técnica de Goiânia. Consertaram meu notebook que outros disseram não ter conserto. Honestidade e competência.",
       stars: 5,
-      avatar: "https://i.pravatar.cc/150?u=marcos"
+      avatar: "https://i.pravatar.cc/150?u=lazaro"
     },
     {
-      name: "Juliana Ferreira",
-      date: "Há 1 semana",
-      text: "A União Infor é a única que confio para mexer nos meus equipamentos. Atendimento VIP e honestidade total. O melhor suporte de TI de Goiânia sem dúvidas.",
+      name: "Kênia Cristina",
+      date: "Há 3 meses",
+      text: "Sempre levo meus equipamentos na União Infor. Confiança total e agilidade no serviço. O melhor suporte técnico da região central.",
       stars: 5,
-      avatar: "https://i.pravatar.cc/150?u=juliana"
+      avatar: "https://i.pravatar.cc/150?u=kenia"
+    },
+    {
+      name: "João Paulo",
+      date: "Há 2 semanas",
+      text: "Ótimo atendimento e preço justo. Resolveram o problema do meu PC gamer rapidamente. Equipe muito atenciosa e técnica.",
+      stars: 5,
+      avatar: "https://i.pravatar.cc/150?u=joao"
+    },
+    {
+      name: "Maria Eduarda",
+      date: "Há 1 mês",
+      text: "Equipe muito profissional. Resolveram o problema do meu notebook no mesmo dia. Preço justo e atendimento nota 10.",
+      stars: 5,
+      avatar: "https://i.pravatar.cc/150?u=maria"
+    },
+    {
+      name: "Carlos Alberto",
+      date: "Há 4 meses",
+      text: "Recomendo a União Infor pela seriedade e competência. Sou cliente há anos e sempre fui muito bem atendido em todas as ocasiões.",
+      stars: 5,
+      avatar: "https://i.pravatar.cc/150?u=carlos"
     }
   ],
   totalVisits: 0,

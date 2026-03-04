@@ -69,10 +69,10 @@ const ContactSection: React.FC = () => {
                     <div className="w-5 h-5 bg-white/10 rounded flex items-center justify-center text-white group-hover:bg-white/20 transition-all duration-300 mb-1">
                       <i className={`fas ${service.icon} text-[8px] group-hover:text-white transition-colors duration-300`}></i>
                     </div>
-                    <h4 className="font-bold text-white text-[10px] uppercase tracking-tight group-hover:text-secondary mb-0 leading-tight transition-colors">
+                    <h4 className="font-bold text-white/80 text-[10px] uppercase tracking-tight group-hover:text-white group-hover:scale-[1.02] mb-0 leading-tight transition-all duration-300">
                       {service.title}
                     </h4>
-                    <span className="text-[8px] font-black text-white/30 uppercase tracking-widest flex items-center">
+                    <span className="text-[8px] font-black text-white/30 uppercase tracking-widest flex items-center group-hover:text-white/80 transition-colors">
                       Solicitar Agora <i className="fas fa-arrow-right ml-1 text-[5px] group-hover:translate-x-1 transition-transform"></i>
                     </span>
                   </button>

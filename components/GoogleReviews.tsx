@@ -38,7 +38,9 @@ const GoogleReviews: React.FC = () => {
                       <h4 className="font-bold text-primary text-sm leading-none">{review.name}</h4>
                       <div className="flex items-center mt-1">
                         <div className="flex text-[#fbbc04] text-[10px] mr-2">
-                          {[...Array(5)].map((_, i) => <i key={i} className="fas fa-star"></i>)}
+                          {[...Array(5)].map((_, i) => (
+                            <i key={i} className={`${i < review.stars ? 'fas' : 'far'} fa-star`}></i>
+                          ))}
                         </div>
                         <span className="text-[10px] text-gray-400 font-medium">{review.date}</span>
                       </div>
